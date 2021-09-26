@@ -26,6 +26,10 @@ const ExpenseForm = () => {
             amount: enteredAmount,
             date: new Date(enteredDate),
         };
+
+        setEnteredTitle("");
+        setEnteredAmount("");
+        setEnteredDate("");
     };
 
     return (
@@ -33,12 +37,17 @@ const ExpenseForm = () => {
             <div className="new-expense__controls">
                 <div className="new-expense__control">
                     <label htmlFor="">Título</label>
-                    <input onChange={titleChangeHandler} type="text" />
+                    <input
+                        onChange={titleChangeHandler}
+                        value={enteredTitle}
+                        type="text"
+                    />
                 </div>
                 <div className="new-expense__control">
                     <label htmlFor="">Valor</label>
                     <input
                         onChange={amountChangeHandler}
+                        value={enteredAmount}
                         type="number"
                         min="0.01"
                         step="0.01"
@@ -48,6 +57,7 @@ const ExpenseForm = () => {
                     <label htmlFor="">Data</label>
                     <input
                         onChange={dateChangeHandler}
+                        value={enteredDate}
                         type="date"
                         min="2020-09-29"
                         max="2022-10-10"
